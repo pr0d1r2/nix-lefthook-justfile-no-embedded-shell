@@ -1,0 +1,12 @@
+---
+pre-commit:
+  commands:
+    justfile-no-embedded-shell:
+      glob: "justfile"
+      run: timeout ${LEFTHOOK_JUSTFILE_NO_EMBEDDED_SHELL_TIMEOUT:-30} lefthook-justfile-no-embedded-shell {staged_files}
+
+pre-push:
+  commands:
+    justfile-no-embedded-shell:
+      glob: "justfile"
+      run: timeout ${LEFTHOOK_JUSTFILE_NO_EMBEDDED_SHELL_TIMEOUT:-30} lefthook-justfile-no-embedded-shell {push_files}

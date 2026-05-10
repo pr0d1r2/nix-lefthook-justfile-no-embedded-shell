@@ -19,6 +19,8 @@ jobs:
             experimental-features = nix-command flakes
       - name: Build
         run: nix build --accept-flake-config
+      - name: Install lefthook remotes
+        run: TERM=dumb nix develop --accept-flake-config .#ci --ignore-environment --keep TERM --command lefthook install
       - name: Pre-commit checks
         run: TERM=dumb nix develop --accept-flake-config .#ci --ignore-environment --keep TERM --command bash -c 'lefthook run pre-commit --all-files'
       - name: Pre-push checks
@@ -35,6 +37,8 @@ jobs:
             experimental-features = nix-command flakes
       - name: Build
         run: nix build --accept-flake-config
+      - name: Install lefthook remotes
+        run: TERM=dumb nix develop --accept-flake-config .#ci --ignore-environment --keep TERM --command lefthook install
       - name: Pre-commit checks
         run: TERM=dumb nix develop --accept-flake-config .#ci --ignore-environment --keep TERM --command bash -c 'lefthook run pre-commit --all-files'
       - name: Pre-push checks

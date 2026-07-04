@@ -22,7 +22,7 @@ Lefthook-compatible enforcer that bans embedded shell from `justfile` recipe bod
 - I.remote: `lefthook-remote.yml` — consumers add as a lefthook remote; provides `pre-commit` + `pre-push` commands globbed to `justfile`
 - I.flake: `packages.${system}.default` — Nix pkg output named `lefthook-justfile-no-embedded-shell`
 - I.devshell: `devShells.${system}.default` + `.#ci` — dev/CI shells; both expose the package, `bats` + libs, lefthook wrappers, and tooling
-- I.ci: `.github/workflows/ci.yml` — linux + macos via `nix-lefthook-ci-action`; `.github/workflows/update-pins.yml` — daily `nixpkgs-lock` pin bump PR
+- I.ci: `.github/workflows/ci.yml` — linux + macos via `nix-lefthook-ci-action`
 
 ## §V Invariants
 
@@ -57,10 +57,10 @@ Lefthook-compatible enforcer that bans embedded shell from `justfile` recipe bod
 | T8 | x | lefthook.yml + lefthook-remote.yml: pre-commit + pre-push, timeout-wrapped | I.remote,V9 |
 | T9 | x | env var timeout config | C6,V9,I.env |
 | T10 | x | dev.sh — BATS_LIB_PATH placeholder + lefthook auto-install | V12 |
-| T11 | x | unit tests: lefthook-justfile-no-embedded-shell.bats (11 tests, assert_failure for embedded shell) | V1-V7 |
+| T11 | x | unit tests: lefthook-justfile-no-embedded-shell.bats (13 tests, assert_failure for embedded shell) | V1-V7 |
 | T12 | x | unit tests: dev.bats (3 tests) | V12 |
 | T13 | x | GitHub Actions CI: linux + macos | V13,I.ci |
-| T14 | x | update-pins workflow: daily nixpkgs-lock bump PR | I.ci |
+| T14 | - | update-pins workflow: dropped (pin refresh handled externally) | I.ci |
 | T15 | x | linter suite via lefthook remotes | V14 |
 | T16 | x | file_size_limits.yml: nix 4096 → 10240 for flattened flake.nix | V16 |
 | T17 | x | opensource audit: no credentials/local-paths/private-refs in git history | V10,V11,C5 |

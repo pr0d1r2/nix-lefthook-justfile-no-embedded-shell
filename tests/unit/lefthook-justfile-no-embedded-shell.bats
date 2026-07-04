@@ -90,3 +90,32 @@ EOF
     run lefthook-justfile-no-embedded-shell "$TEST_TEMP/justfile"
     assert_success
 }
+
+@test "accepts recipe calling expect tests/" {
+    cat > "$TEST_TEMP/justfile" << 'EOF'
+interact:
+    expect tests/login.exp
+EOF
+    run lefthook-justfile-no-embedded-shell "$TEST_TEMP/justfile"
+    assert_success
+}
+
+@test "accepts recipe calling ssh -t" {
+    cat > "$TEST_TEMP/justfile" << 'EOF'
+deploy:
+    ssh -t deploy@prod.example.com bash scripts/deploy.sh
+EOF
+    run lefthook-justfile-no-embedded-shell "$TEST_TEMP/justfile"
+    assert_success
+}
+
+@test "scans subdirectory justfile" {
+    mkdir -p "$TEST_TEMP/sub"
+    cat > "$TEST_TEMP/sub/justfile" << 'EOF'
+build:
+    echo "violation"
+EOF
+    run lefthook-justfile-no-embedded-shell "$TEST_TEMP/sub/justfile"
+    assert_failure
+    assert_output --partial "embedded shell"
+}

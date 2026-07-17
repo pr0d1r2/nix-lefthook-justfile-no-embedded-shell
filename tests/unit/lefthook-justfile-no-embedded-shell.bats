@@ -91,6 +91,17 @@ EOF
     assert_success
 }
 
+@test "attribute lines clear recipe state" {
+    cat > "$TEST_TEMP/justfile" << 'EOF'
+first:
+    bash scripts/first.sh
+[private]
+    echo "not part of a recipe"
+EOF
+    run lefthook-justfile-no-embedded-shell "$TEST_TEMP/justfile"
+    assert_success
+}
+
 @test "accepts recipe calling expect tests/" {
     cat > "$TEST_TEMP/justfile" << 'EOF'
 interact:

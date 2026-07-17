@@ -37,6 +37,7 @@ for file in "${files[@]}"; do
 
     if [[ "$raw" =~ ^[^[:space:]] ]]; then
       if [[ "$raw" =~ ^\[ ]]; then
+        in_recipe=0
         continue
       fi
       if [[ "$raw" =~ ^[a-zA-Z_][a-zA-Z0-9_-]*(\ [^:]*)?: ]]; then

@@ -10,71 +10,71 @@
     nixpkgs-lock.url = "github:pr0d1r2/nixpkgs-lock";
     nixpkgs.follows = "nixpkgs-lock/nixpkgs";
     nix-lefthook-bats-unit-src = {
-      url = "github:pr0d1r2/nix-lefthook-bats-unit";
+      url = "git+https://github.com/pr0d1r2/nix-lefthook-bats-unit";
       flake = false;
     };
     nix-lefthook-deadnix-src = {
-      url = "github:pr0d1r2/nix-lefthook-deadnix";
+      url = "git+https://github.com/pr0d1r2/nix-lefthook-deadnix";
       flake = false;
     };
     nix-lefthook-editorconfig-checker-src = {
-      url = "github:pr0d1r2/nix-lefthook-editorconfig-checker";
+      url = "git+https://github.com/pr0d1r2/nix-lefthook-editorconfig-checker";
       flake = false;
     };
     nix-lefthook-file-size-check-src = {
-      url = "github:pr0d1r2/nix-lefthook-file-size-check";
+      url = "git+https://github.com/pr0d1r2/nix-lefthook-file-size-check";
       flake = false;
     };
     nix-lefthook-git-conflict-markers-src = {
-      url = "github:pr0d1r2/nix-lefthook-git-conflict-markers";
+      url = "git+https://github.com/pr0d1r2/nix-lefthook-git-conflict-markers";
       flake = false;
     };
     nix-lefthook-git-no-local-paths-src = {
-      url = "github:pr0d1r2/nix-lefthook-git-no-local-paths";
+      url = "git+https://github.com/pr0d1r2/nix-lefthook-git-no-local-paths";
       flake = false;
     };
     nix-lefthook-markdownlint-src = {
-      url = "github:pr0d1r2/nix-lefthook-markdownlint";
+      url = "git+https://github.com/pr0d1r2/nix-lefthook-markdownlint";
       flake = false;
     };
     nix-lefthook-markdownlint-agentic-src = {
-      url = "github:pr0d1r2/nix-lefthook-markdownlint-agentic";
+      url = "git+https://github.com/pr0d1r2/nix-lefthook-markdownlint-agentic";
       flake = false;
     };
     nix-lefthook-missing-final-newline-src = {
-      url = "github:pr0d1r2/nix-lefthook-missing-final-newline";
+      url = "git+https://github.com/pr0d1r2/nix-lefthook-missing-final-newline";
       flake = false;
     };
     nix-lefthook-nix-no-embedded-shell-src = {
-      url = "github:pr0d1r2/nix-lefthook-nix-no-embedded-shell";
+      url = "git+https://github.com/pr0d1r2/nix-lefthook-nix-no-embedded-shell";
       flake = false;
     };
     nix-lefthook-nixfmt-src = {
-      url = "github:pr0d1r2/nix-lefthook-nixfmt";
+      url = "git+https://github.com/pr0d1r2/nix-lefthook-nixfmt";
       flake = false;
     };
     nix-lefthook-shellcheck-src = {
-      url = "github:pr0d1r2/nix-lefthook-shellcheck";
+      url = "git+https://github.com/pr0d1r2/nix-lefthook-shellcheck";
       flake = false;
     };
     nix-lefthook-shfmt-src = {
-      url = "github:pr0d1r2/nix-lefthook-shfmt";
+      url = "git+https://github.com/pr0d1r2/nix-lefthook-shfmt";
       flake = false;
     };
     nix-lefthook-statix-src = {
-      url = "github:pr0d1r2/nix-lefthook-statix";
+      url = "git+https://github.com/pr0d1r2/nix-lefthook-statix";
       flake = false;
     };
     nix-lefthook-trailing-whitespace-src = {
-      url = "github:pr0d1r2/nix-lefthook-trailing-whitespace";
+      url = "git+https://github.com/pr0d1r2/nix-lefthook-trailing-whitespace";
       flake = false;
     };
     nix-lefthook-typos-src = {
-      url = "github:pr0d1r2/nix-lefthook-typos";
+      url = "git+https://github.com/pr0d1r2/nix-lefthook-typos";
       flake = false;
     };
     nix-lefthook-yamllint-src = {
-      url = "github:pr0d1r2/nix-lefthook-yamllint";
+      url = "git+https://github.com/pr0d1r2/nix-lefthook-yamllint";
       flake = false;
     };
   };

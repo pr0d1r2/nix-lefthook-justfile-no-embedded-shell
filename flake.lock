@@ -510,11 +510,11 @@
     "nix-lefthook-editorconfig-checker-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1785169039,
-        "narHash": "sha256-CEfBJh8c6ueakqbXYLrwMsPJQOtm8Og18GXG9rt6/U8=",
+        "lastModified": 1785321374,
+        "narHash": "sha256-jdtCbOpJmDcYfbVoc6QpUTmT/G+4N9CZbd5Ad+mh6K0=",
         "ref": "refs/heads/main",
-        "rev": "d27bab1c04e046d6790edcd0994c1fb724259c3d",
-        "revCount": 50,
+        "rev": "f0f57078cb22f4b132993cb8f7ef43e1961cfd4a",
+        "revCount": 51,
         "type": "git",
         "url": "https://github.com/pr0d1r2/nix-lefthook-editorconfig-checker"
       },
@@ -1022,11 +1022,11 @@
     "nix-lefthook-markdownlint-agentic-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1785234033,
-        "narHash": "sha256-CwTv34LtRjb33QWyQy3+O9GW4enkYOftPLRcLRxrQX4=",
+        "lastModified": 1785355967,
+        "narHash": "sha256-oPTDKX5e7NALVgvyR1MCr3UAwdupk/vq4F0Ysvn7gJQ=",
         "ref": "refs/heads/main",
-        "rev": "7b63a557579f48e086a9a380e4dc84c613cf6ebc",
-        "revCount": 37,
+        "rev": "4e24f4fbf3e370fdcfab4d8c0aa70088bbf24dae",
+        "revCount": 38,
         "type": "git",
         "url": "https://github.com/pr0d1r2/nix-lefthook-markdownlint-agentic"
       },
@@ -1454,11 +1454,11 @@
     "nix-lefthook-nix-no-embedded-shell-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1785241348,
-        "narHash": "sha256-IIHv7uHPa7yBjdwhROXR7LUsq8+mgwo5Z8uEd348Ddo=",
+        "lastModified": 1785353366,
+        "narHash": "sha256-S9K0lqE4e/sDzpmC2FEBKMEtTqfao3ycRTEnU5U5cBI=",
         "ref": "refs/heads/main",
-        "rev": "83ade4beb2adc5acde5fd0db5d5bea61e2a6eb02",
-        "revCount": 48,
+        "rev": "0fb2b770eea43a303770a1981807a27bd6e198e0",
+        "revCount": 49,
         "type": "git",
         "url": "https://github.com/pr0d1r2/nix-lefthook-nix-no-embedded-shell"
       },
@@ -1790,11 +1790,11 @@
     "nix-lefthook-shfmt-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1785300830,
-        "narHash": "sha256-58ty0PEvtPKDnOKEeBqe42T23ntTk1AtZ3FiknqfquY=",
+        "lastModified": 1785413298,
+        "narHash": "sha256-0cru5OKSFaP7i/OyuJ6Y+O02X4m39XvfvthsobU4yLE=",
         "ref": "refs/heads/main",
-        "rev": "d282ccdcb7cf4b48288a36f1e5899d44c47d5461",
-        "revCount": 58,
+        "rev": "7425d361242e06fc26a6743f12c3de48402c5237",
+        "revCount": 60,
         "type": "git",
         "url": "https://github.com/pr0d1r2/nix-lefthook-shfmt"
       },

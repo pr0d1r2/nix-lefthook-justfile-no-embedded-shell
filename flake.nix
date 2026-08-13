@@ -22,9 +22,14 @@
       ...
     }:
     let
+      supportedSystems = [
+        "aarch64-darwin"
+        "x86_64-darwin"
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
       forAllSystems =
         f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
-          batsWithLibs = batsWithLibsFor pkgs;
     in
     set-and-setting.lib.mkConsumerFlake {
       inherit self nixpkgs set-and-setting;
@@ -38,38 +43,10 @@
         "yaml"
       ];
       extraPackages = pkgs: {
-          default = pkgs.writeShellApplication {
-            name = "lefthook-justfile-no-embedded-shell";
-            text = builtins.readFile ./lefthook-justfile-no-embedded-shell.sh;
-          };
-        devShells = forAllSystems (
-          pkgs:
-          let
-            inherit (pkgs.stdenv.hostPlatform) system;
-            batsWithLibs = batsWithLibsFor pkgs;
-            ciCommon = [
-              self.packages.${system}.default
-              batsWithLibs
-              pkgs.bats
-              pkgs.coreutils
-              pkgs.git
-              pkgs.lefthook
-              pkgs.nix
-              pkgs.parallel
-            ]
-            ++ (lefthookWrappersFor pkgs);
-          in
-          {
-            ci = pkgs.mkShell {
-              BATS_LIB_PATH = "${batsWithLibs}/share/bats";
-            };
-            default = pkgs.mkShell {
-              shellHook = builtins.replaceStrings [ "@BATS_LIB_PATH@" ] [ "${batsWithLibs}" ] (
-                builtins.readFile ./dev.sh
-              );
-            };
-          }
-        );
+        default = pkgs.writeShellApplication {
+          name = "lefthook-justfile-no-embedded-shell";
+          text = builtins.readFile ./lefthook-justfile-no-embedded-shell.sh;
+        };
       };
       src = ./.;
     };

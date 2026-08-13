@@ -21,21 +21,10 @@
       set-and-setting,
       ...
     }:
-    let
-      supportedSystems = [
-        "aarch64-darwin"
-        "x86_64-darwin"
-        "x86_64-linux"
-        "aarch64-linux"
-      ];
-      forAllSystems =
-        f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
-    in
     set-and-setting.lib.mkConsumerFlake {
       inherit self nixpkgs set-and-setting;
       fragments = [
         "base"
-        "actions"
         "nix"
         "shell"
         "ascii"
@@ -47,6 +36,13 @@
           name = "lefthook-justfile-no-embedded-shell";
           text = builtins.readFile ./lefthook-justfile-no-embedded-shell.sh;
         };
+      };
+      extraChecks = pkgs: {
+        actionlint = pkgs.runCommand "actionlint-check" { nativeBuildInputs = [ pkgs.actionlint ]; } ''
+          cd ${./.github/workflows}
+          actionlint *.yml *.yaml
+          touch $out
+        '';
       };
       src = ./.;
     };

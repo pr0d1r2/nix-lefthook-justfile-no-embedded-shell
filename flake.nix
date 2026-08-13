@@ -25,6 +25,7 @@
       inherit self nixpkgs set-and-setting;
       fragments = [
         "base"
+        "actions"
         "nix"
         "shell"
         "ascii"
@@ -36,13 +37,6 @@
           name = "lefthook-justfile-no-embedded-shell";
           text = builtins.readFile ./lefthook-justfile-no-embedded-shell.sh;
         };
-      };
-      extraChecks = pkgs: {
-        actionlint = pkgs.runCommand "actionlint-check" { nativeBuildInputs = [ pkgs.actionlint ]; } ''
-          cd ${./.github/workflows}
-          actionlint *.yml *.yaml
-          touch $out
-        '';
       };
       src = ./.;
     };

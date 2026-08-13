@@ -25,7 +25,6 @@
       inherit self nixpkgs set-and-setting;
       fragments = [
         "base"
-        "actions"
         "nix"
         "shell"
         "ascii"
@@ -37,6 +36,27 @@
           name = "lefthook-justfile-no-embedded-shell";
           text = builtins.readFile ./lefthook-justfile-no-embedded-shell.sh;
         };
+      };
+      # set-and-setting's actionlint helper passes a string to
+      # nixpkgs.lib.sources.sourceByRegex, whose current API requires a list.
+      # Keep the actionlint guardrail local until that pinned helper is fixed.
+      extraChecks = pkgs: {
+        actionlint =
+          let
+            workflowFiles = pkgs.lib.sources.sourceByRegex
+              (pkgs.lib.sources.sourceFilesBySuffices ./. [ ".yml" ".yaml" ])
+              [ "^.github/workflows/.*" ];
+          in
+          pkgs.runCommand "actionlint-check" { nativeBuildInputs = [ pkgs.findutils pkgs.actionlint ]; } ''
+            cd ${workflowFiles}
+            mapfile -t matches < <(find . -type f | sort)
+            if [ ''${#matches[@]} -eq 0 ]; then
+              touch $out
+              exit 0
+            fi
+            actionlint "''${matches[@]}"
+            touch $out
+          '';
       };
       src = ./.;
     };

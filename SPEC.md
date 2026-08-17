@@ -4,6 +4,12 @@
 
 Lefthook-compatible enforcer that bans embedded shell from `justfile` recipe bodies. Every recipe line must invoke an extracted script (`bash scripts/…`, `bats tests/…`, `expect tests/…`), `just --list`, or a whitelisted `ssh -t` form — anything else is flagged as embedded shell, pushing logic out of the justfile and into testable scripts. Packaged as a Nix flake. Opensource-safe: zero credentials, zero local paths, zero private refs.
 
+## §B Bugs
+
+| id | date | cause | fix |
+|----|------|-------|-----|
+| B1 | 2026-08-17 | Materialized `lefthook.yml` drifted from the pinned `set-and-setting` fragment output after the fragment set changed. | Regenerated `lefthook.yml` from the pinned fragment revision. |
+
 ## §C Constraints
 
 - C1: Pure bash — no Python/Ruby/etc runtime deps; the check is a single sourced bash script with no `runtimeInputs`

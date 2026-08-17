@@ -64,3 +64,9 @@ Lefthook-compatible enforcer that bans embedded shell from `justfile` recipe bod
 | T15 | x | linter suite via lefthook remotes | V14 |
 | T16 | x | file_size_limits.yml: nix 4096 → 10240 for flattened flake.nix | V16 |
 | T17 | x | opensource audit: no credentials/local-paths/private-refs in git history | V10,V11,C5 |
+
+## §B Bugs
+
+| id | date | cause | fix |
+|----|------|-------|-----|
+| B1 | 2026-08-17 | Shared guardrails actionlint fragment passed a string path regex to a nixpkgs API requiring a list, breaking flake evaluation | Pin the compatible set-and-setting revision and remove the unsupported actionlint fragment |

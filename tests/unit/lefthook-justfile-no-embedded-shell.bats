@@ -37,6 +37,16 @@ EOF
     assert_success
 }
 
+@test "rejects shell chaining after an allowed command" {
+    cat > "$TEST_TEMP/justfile" << 'EOF'
+build:
+    bash scripts/build.sh && echo "unexpected inline shell"
+EOF
+    run lefthook-justfile-no-embedded-shell "$TEST_TEMP/justfile"
+    assert_failure
+    assert_output --partial "embedded shell"
+}
+
 @test "accepts recipe calling bats tests/" {
     cat > "$TEST_TEMP/justfile" << 'EOF'
 test:

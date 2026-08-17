@@ -52,7 +52,9 @@ for file in "${files[@]}"; do
 
     body="${raw#"${raw%%[![:space:]]*}"}"
 
-    if [[ ! "$body" =~ $ALLOW_RE ]]; then
+    # A permitted command may have arguments, but must not be followed by
+    # shell syntax that embeds another command or expression.
+    if [[ "$body" =~ [\&\|\;\<\>\$\(\)\`] ]] || [[ ! "$body" =~ $ALLOW_RE ]]; then
       printf '%s:%d: embedded shell in recipe body: %s\n' "$file" "$lineno" "$body" >&2
       failed=1
     fi

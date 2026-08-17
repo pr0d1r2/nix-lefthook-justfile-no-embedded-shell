@@ -8,6 +8,11 @@ setup() {
     TEST_TEMP="$(mktemp -d)"
 }
 
+@test "flake has a project description" {
+    run grep -F 'description = "Lefthook guardrail that rejects embedded shell in justfile recipes";' flake.nix
+    assert_success
+}
+
 teardown() {
     rm -rf "$TEST_TEMP"
 }

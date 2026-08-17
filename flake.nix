@@ -1,5 +1,5 @@
 {
-  description = "CHANGEME";
+  description = "Lefthook guardrail that rejects embedded shell in justfile recipes";
 
   nixConfig = {
     extra-substituters = [ "https://pr0d1r2.cachix.org" ];

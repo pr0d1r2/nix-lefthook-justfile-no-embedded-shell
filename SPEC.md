@@ -70,3 +70,4 @@ Lefthook-compatible enforcer that bans embedded shell from `justfile` recipe bod
 | id | date | cause | fix |
 |----|------|-------|-----|
 | B1 | 2026-08-17 | Shared guardrails actionlint fragment passed a string path regex to a nixpkgs API requiring a list, breaking flake evaluation | Pin the compatible set-and-setting revision and remove the unsupported actionlint fragment |
+| B2 | 2026-08-17 | Guardrails fragment set does not define the requested `actions` fragment, breaking flake evaluation | Remove the unsupported `actions` fragment from the consumer flake |
